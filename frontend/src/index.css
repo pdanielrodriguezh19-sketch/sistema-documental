@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+:root {
+  --ink: #1B2430;
+  --paper: #EDEEE8;
+  --paper-raised: #FFFFFF;
+  --accent: #2F6F62;
+  --accent-ink: #0F332C;
+  --line: #D3CFC3;
+  --muted: #5B6169;
+  --danger: #A23B2A;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "IBM Plex Sans", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: 28px; }
+h2 { font-size: 20px; }
+h3 { font-size: 16px; }
+
+p { margin: 0 0 12px 0; }
+
+a {
+  color: var(--accent-ink);
+}
+
+/* --- Layout shell --- */
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  background: var(--ink);
+  color: var(--paper);
+  display: flex;
+  flex-direction: column;
+  padding: 24px 0;
+}
+
+.sidebar__brand {
+  font-family: var(--font-display);
+  font-size: 18px;
+  padding: 0 24px 24px 24px;
+  border-bottom: 1px solid rgba(237, 238, 232, 0.15);
+  margin-bottom: 16px;
+}
+
+.sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.nav-link {
+  color: rgba(237, 238, 232, 0.75);
+  text-decoration: none;
+  padding: 10px 24px;
+  border-left: 3px solid transparent;
+  font-size: 14px;
+}
+
+.nav-link:hover {
+  color: var(--paper);
+  background: rgba(237, 238, 232, 0.06);
+}
+
+.nav-link--active {
+  color: var(--paper);
+  border-left-color: var(--accent);
+  background: rgba(237, 238, 232, 0.08);
+}
+
+.sidebar__footer {
+  padding: 16px 24px 0 24px;
+  border-top: 1px solid rgba(237, 238, 232, 0.15);
+}
+
+.main {
+  flex: 1;
+  padding: 32px 40px;
+  max-width: 1040px;
+}
+
+/* --- Auth pages (sin sidebar) --- */
+.auth-layout {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper);
+}
+
+/* --- Panels --- */
+.panel {
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  padding: 28px;
+}
+
+/* --- Forms --- */
+.field {
+  margin-bottom: 16px;
+}
+
+.field label {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.field input {
+  width: 100%;
+  padding: 9px 11px;
+  border: 1px solid var(--line);
+  background: var(--paper-raised);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 14px;
+}
+
+.field input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  border-color: var(--accent);
+}
+
+/* --- Buttons --- */
+.btn {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 18px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.btn--primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background: var(--accent-ink);
+}
+
+.btn--primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn--ghost {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+/* --- Feedback --- */
+.error-banner {
+  background: #F6E7E3;
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  padding: 10px 12px;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+/* --- Fichas tipo carpeta (repositorios / documentos) --- */
+.file-card {
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  position: relative;
+  padding: 20px 16px 16px 16px;
+  margin-bottom: 12px;
+}
+
+.file-card__tab {
+  position: absolute;
+  top: -1px;
+  left: 16px;
+  padding: 2px 10px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #fff;
+  background: var(--muted);
+}
+
+.file-card__tab--procesado { background: var(--accent); }
+.file-card__tab--error { background: var(--danger); }
+.file-card__tab--pendiente { background: var(--muted); }
+
+.file-card__title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  margin: 8px 0 4px 0;
+}
+
+.file-card__meta {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.file-card__actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+/* --- Botón ghost sobre fondo oscuro (sidebar) --- */
+.sidebar .btn--ghost {
+  color: var(--paper);
+  border-color: rgba(237, 238, 232, 0.35);
+}
+
+.sidebar .btn--ghost:hover {
+  background: rgba(237, 238, 232, 0.08);
+  border-color: var(--paper);
+}

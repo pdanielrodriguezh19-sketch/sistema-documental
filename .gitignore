@@ -1,0 +1,25 @@
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# Backend
+backend/venv/
+backend/__pycache__/
+backend/**/__pycache__/
+backend/*.pyc
+
+# Variables de entorno
+.env
+backend/.env
+frontend/.env
+
+# Documentos subidos por usuarios
+documents/
+
+# n8n local
+.n8n/
+.n8n-files/
+
+# Sistema
+.DS_Store
+Thumbs.db
